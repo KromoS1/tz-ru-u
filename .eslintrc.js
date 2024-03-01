@@ -10,10 +10,9 @@ module.exports = {
   settings: {
     'import/resolver': {typescript: {}},
     'boundaries/elements': [
-      {type: 'pages', pattern: 'pages/*'},
       {type: 'app', pattern: 'app/*'},
       {type: 'processes', pattern: 'processes/*'},
-      {type: 'pagesLayer', pattern: 'pagesLayer/*'},
+      {type: 'screens', pattern: 'screens/*'},
       {type: 'widgets', pattern: 'widgets/*'},
       {type: 'features', pattern: 'features/*'},
       {type: 'entities', pattern: 'entities/*'},
@@ -30,7 +29,7 @@ module.exports = {
         pathGroups: [
           {group: 'internal', position: 'after', pattern: '@/app/**'},
           {group: 'internal', position: 'after', pattern: '@/processes/**'},
-          {group: 'internal', position: 'after', pattern: '@/pagesLayer/**'},
+          {group: 'internal', position: 'after', pattern: '@/screens/**'},
           {group: 'internal', position: 'after', pattern: '@/widgets/**'},
           {group: 'internal', position: 'after', pattern: '@/features/**'},
           {group: 'internal', position: 'after', pattern: '@/entities/**'},
@@ -53,13 +52,8 @@ module.exports = {
         patterns: [
           {
             message:
-              'Private imports are prohibited from @/pages, use public imports instead',
-            group: ['@/pages/**'],
-          },
-          {
-            message:
-              'Private imports are prohibited from @/App, use public imports instead',
-            group: ['@/App/**'],
+              'Private imports are prohibited from @/app, use public imports instead',
+            group: ['@/app/**'],
           },
           {
             message:
@@ -68,8 +62,8 @@ module.exports = {
           },
           {
             message:
-              'Private imports are prohibited from @/pagesLayer, use public imports instead',
-            group: ['@/pagesLayer/*/**'],
+              'Private imports are prohibited from @/screens, use public imports instead',
+            group: ['@/screens/*/**'],
           },
           {
             message:
@@ -94,12 +88,7 @@ module.exports = {
           {
             message:
               'Prefer absolute imports instead of relatives (for root modules)',
-            group: ['../**/pages'],
-          },
-          {
-            message:
-              'Prefer absolute imports instead of relatives (for root modules)',
-            group: ['../**/App'],
+            group: ['../**/app'],
           },
           {
             message:
@@ -109,7 +98,7 @@ module.exports = {
           {
             message:
               'Prefer absolute imports instead of relatives (for root modules)',
-            group: ['../**/pagesLayer'],
+            group: ['../**/screens'],
           },
           {
             message:
@@ -140,22 +129,10 @@ module.exports = {
         default: 'disallow',
         rules: [
           {
-            from: 'pages',
-            allow: [
-              'App',
-              'processes',
-              'pagesLayer',
-              'widgets',
-              'features',
-              'entities',
-              'shared',
-            ],
-          },
-          {
-            from: 'App',
+            from: 'app',
             allow: [
               'processes',
-              'pagesLayer',
+              'screens',
               'widgets',
               'features',
               'entities',
@@ -164,10 +141,10 @@ module.exports = {
           },
           {
             from: 'processes',
-            allow: ['pagesLayer', 'widgets', 'features', 'entities', 'shared'],
+            allow: ['screens', 'widgets', 'features', 'entities', 'shared'],
           },
           {
-            from: 'pagesLayer',
+            from: 'screens',
             allow: ['widgets', 'features', 'entities', 'shared'],
           },
           {from: 'widgets', allow: ['features', 'entities', 'shared']},
