@@ -1,5 +1,5 @@
 import {NAVIGATE, StackPropType} from '@src/entities';
-import {TitleScreen} from '@src/shared';
+import {BoxNumber} from '@src/shared';
 import {FC} from 'react';
 import {View} from 'react-native';
 
