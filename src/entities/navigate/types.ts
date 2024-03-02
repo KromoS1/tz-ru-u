@@ -4,7 +4,7 @@ type StringKeys<T> = Extract<keyof T, string>;
 
 export type RootStackParamList = {
   'AUTH/SIGN_IN': {} | undefined;
-  'AUTH/RECOVERY_CODE': {} | undefined;
+  'AUTH/RECOVERY_CODE': {phone: string; code: number};
 };
 
 export type StackPropType<T extends keyof RootStackParamList> =

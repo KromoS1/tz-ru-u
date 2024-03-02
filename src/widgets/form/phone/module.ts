@@ -17,18 +17,21 @@ export const usePhoneForm = () => {
   });
 };
 
-export const useSignPhone = () => {
+export const useSignPhoneMutate = () => {
   const nav = useNavigation();
+
+  let phone = '';
 
   return useMutation({
     mutationKey: KEY_REQUIRE.signPhone,
     mutationFn: (data: PhoneFormType) => {
+      phone = data.phone;
       return instance
         .post<AxiosResponse>(`/auth/send-sms?phone=${data.phone}`)
         .then(res => res.data);
     },
     onSuccess: res => {
-      nav.navigate(NAVIGATE.AUTH.RECOVERY_CODE);
+      nav.navigate(NAVIGATE.AUTH.RECOVERY_CODE, {phone, code: res.data});
     },
   });
 };

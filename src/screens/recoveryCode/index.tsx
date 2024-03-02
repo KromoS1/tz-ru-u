@@ -6,14 +6,16 @@ import {View} from 'react-native';
 
 type PropsType = StackPropType<typeof NAVIGATE.AUTH.RECOVERY_CODE>;
 
-export const RecoveryCodeScreen: FC<PropsType> = () => {
+export const RecoveryCodeScreen: FC<PropsType> = ({route}) => {
+  const {phone, code} = route.params;
+
   return (
     <View style={{flex: 1, backgroundColor: '#fff', paddingHorizontal: 20}}>
       <ScreenTitles
         title="Введите код"
         subTitle="на ваш телефон должен прийти ков в смс"
       />
-      <RecoveryCodeForm />
+      <RecoveryCodeForm phone={phone} code={code} />
     </View>
   );
 };

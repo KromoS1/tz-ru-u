@@ -4,3 +4,4 @@ export {BoxNumber} from './boxNumber';
 export * from './inputs';
 export * from './flags';
 export * from './header';
+export * from './timer';

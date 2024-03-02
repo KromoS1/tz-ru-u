@@ -1,7 +1,7 @@
 import {Flags, NextButton, PhoneNumber, SubtitleTypography} from '@src/shared';
 import {FC, PropsWithChildren, memo} from 'react';
 import {View} from 'react-native';
-import {usePhoneForm, useSignPhone} from './module';
+import {usePhoneForm, useSignPhoneMutate} from './module';
 import {Controller, SubmitHandler} from 'react-hook-form';
 import {PhoneFormType} from './types';
 
@@ -13,7 +13,7 @@ export const PhoneForm: FC<PropsWithChildren> = memo(({children}) => {
     formState: {errors},
   } = usePhoneForm();
 
-  const {mutate: sendSms} = useSignPhone();
+  const {mutate: sendSms} = useSignPhoneMutate();
 
   const isDisableBtn = !!errors.phone || watch('phone').length < 1;
 
