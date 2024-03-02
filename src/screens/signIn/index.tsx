@@ -1,5 +1,6 @@
 import {NAVIGATE, StackPropType} from '@src/entities';
-import {BoxNumber} from '@src/shared';
+import {Flags, PhoneNumber} from '@src/shared';
+
 import {FC} from 'react';
 import {View} from 'react-native';
 

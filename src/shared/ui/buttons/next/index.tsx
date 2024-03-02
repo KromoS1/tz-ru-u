@@ -1,8 +1,9 @@
-import {FC, memo} from 'react';
+import {FC, memo, useMemo} from 'react';
 
 import {TouchableOpacity, View} from 'react-native';
 import Svg, {Circle, G, Path} from 'react-native-svg';
 import styles from './style';
+import {globalStyle} from '@src/styles';
 
 type PropsType = {
   isDisable: boolean;
@@ -16,7 +17,12 @@ const radius = size / 2 - strokeWidth / 2;
 const circumference = 2 * Math.PI * radius;
 
 export const NextButton: FC<PropsType> = memo(({isDisable, press}) => {
-  const color = !isDisable ? '#28a889' : '#bfe5dc';
+  const {next} = globalStyle.button;
+
+  const color = useMemo(
+    () => (!isDisable ? next.default : next.disabled),
+    [isDisable],
+  );
 
   return (
     <View style={styles.boxButton}>

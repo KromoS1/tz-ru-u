@@ -1,17 +1,20 @@
-import {FC, memo} from 'react';
+import {FC, memo, useMemo} from 'react';
 import {Text, View} from 'react-native';
 import styles from './styles';
+import {globalStyle} from '@src/styles';
 
 type PropsType = {
   num?: number;
   isError: boolean;
 };
 
-const color = '#e5e5e5';
-const colorError = '#fc4c4e';
-
 export const BoxNumber: FC<PropsType> = memo(({num, isError}) => {
-  const borderColor = !isError ? color : colorError;
+  const {main} = globalStyle;
+
+  const borderColor = useMemo(
+    () => (!isError ? main.color : main.error),
+    [isError],
+  );
 
   return (
     <View style={[styles.box, {borderColor}]}>
