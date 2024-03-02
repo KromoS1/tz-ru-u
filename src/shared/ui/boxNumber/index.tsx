@@ -18,7 +18,11 @@ export const BoxNumber: FC<PropsType> = memo(({num, isError}) => {
 
   return (
     <View style={[styles.box, {borderColor}]}>
-      {num ? <Text>{num}</Text> : <View style={styles.line}></View>}
+      {num ? (
+        <Text style={styles.text}>{num}</Text>
+      ) : (
+        <View style={styles.line}></View>
+      )}
     </View>
   );
 });

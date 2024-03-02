@@ -12,5 +12,6 @@ export default StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 16,
+    color: 'black',
   },
 });

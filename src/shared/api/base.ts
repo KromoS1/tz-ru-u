@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: 'http://ecobike.ruyou.ru',
+  baseURL: 'https://ecobike.ruyou.ru',
 });

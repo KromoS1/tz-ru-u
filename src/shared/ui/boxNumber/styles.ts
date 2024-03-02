@@ -20,4 +20,7 @@ export default StyleSheet.create({
     backgroundColor: 'gray',
     marginTop: 10,
   },
+  text: {
+    color: 'black',
+  },
 });

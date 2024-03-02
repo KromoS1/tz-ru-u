@@ -40,7 +40,7 @@ export const Header = memo(() => {
       )}
 
       <View style={[styles.textBox, {paddingRight: isCanGoBack ? 30 : 0}]}>
-        <Text style={styles.text}>ecobice</Text>
+        <Text style={styles.text}>ecobike</Text>
       </View>
     </View>
   );

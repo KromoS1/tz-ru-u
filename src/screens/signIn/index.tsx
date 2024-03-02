@@ -13,7 +13,7 @@ export const SignInScreen: FC<PropsType> = () => {
       <ScreenTitles title="Вход" subTitle="Введите номер телефона" />
       <PhoneForm>
         <View style={{alignItems: 'center'}}>
-          <Text>Язык: Русский</Text>
+          <Text style={{color: 'gray'}}>Язык: Русский</Text>
         </View>
       </PhoneForm>
     </View>

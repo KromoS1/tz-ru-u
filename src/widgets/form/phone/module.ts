@@ -7,6 +7,7 @@ import {KEY_REQUIRE, instance} from '@src/shared';
 import {AxiosResponse} from 'axios';
 import {useNavigation} from '@react-navigation/native';
 import {NAVIGATE} from '@src/entities';
+import {Alert} from 'react-native';
 
 export const usePhoneForm = () => {
   return useForm<PhoneFormType>({
@@ -32,6 +33,9 @@ export const useSignPhoneMutate = () => {
     },
     onSuccess: res => {
       nav.navigate(NAVIGATE.AUTH.RECOVERY_CODE, {phone, code: res.data});
+    },
+    onError: res => {
+      Alert.alert(`${res}`);
     },
   });
 };
