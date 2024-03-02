@@ -5,8 +5,8 @@ import styles from './styles';
 
 type PropsType = {
   value: string;
-  isError: boolean;
-  change: (text: string) => void;
+  isError?: boolean;
+  change?: (text: string) => void;
 };
 
 export const PhoneNumber: FC<PropsWithChildren<PropsType>> = memo(

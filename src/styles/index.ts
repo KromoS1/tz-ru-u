@@ -1,7 +1,7 @@
 export const globalStyle = {
   main: {
     text: '#000',
-    color: '#e5e5e5',
+    color: 'gray',
     error: '#fc4c4e',
   },
   button: {

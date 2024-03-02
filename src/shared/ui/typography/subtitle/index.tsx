@@ -5,7 +5,7 @@ import {globalStyle} from '@src/styles';
 
 type PropsType = {
   subTitle: string;
-  isError: boolean;
+  isError?: boolean;
   fontSize?: number;
 };
 
