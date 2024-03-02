@@ -4,7 +4,7 @@ import styles from './styles';
 import {globalStyle} from '@src/styles';
 
 type PropsType = {
-  num?: number;
+  num?: string;
   isError: boolean;
 };
 

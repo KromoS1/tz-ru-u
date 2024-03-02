@@ -1,1 +1,1 @@
-export {SignInTitles} from './signInTitle';
+export {ScreenTitles} from './screenTitle';

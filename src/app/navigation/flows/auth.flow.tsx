@@ -10,7 +10,7 @@ export const AuthFlow = () => {
 
   return (
     <AuthStack.Navigator screenOptions={{header: () => <Header />}}>
-      <AuthStack.Screen name={SIGN_IN} component={SignInScreen} />
+      {/* <AuthStack.Screen name={SIGN_IN} component={SignInScreen} /> */}
       <AuthStack.Screen name={RECOVERY_CODE} component={RecoveryCodeScreen} />
     </AuthStack.Navigator>
   );
