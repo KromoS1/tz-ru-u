@@ -8,8 +8,6 @@ type PropsType = {
   isError: boolean;
 };
 
-const arr = [1, 2, 3, 4, 5, 6];
-
 export const CodeField: FC<PropsType> = memo(({value, change, isError}) => {
   const inputRef = useRef<TextInput | null>(null);
 
@@ -24,9 +22,9 @@ export const CodeField: FC<PropsType> = memo(({value, change, isError}) => {
   }, []);
 
   const numbers = useMemo(() => {
-    return arr.map((v, i) => {
+    return Array.from({length: 6}, (_, i) => {
       return (
-        <BoxNumber key={v} isError={isError} num={value?.split('')[i] || ''} />
+        <BoxNumber key={i} isError={isError} num={value?.split('')[i] || ''} />
       );
     });
   }, [value, isError]);
