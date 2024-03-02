@@ -1,7 +1,7 @@
 import {Flags, NextButton, PhoneNumber, SubtitleTypography} from '@src/shared';
 import {FC, PropsWithChildren, memo} from 'react';
 import {View} from 'react-native';
-import {usePhoneForm} from './module';
+import {usePhoneForm, useSignPhone} from './module';
 import {Controller, SubmitHandler} from 'react-hook-form';
 import {PhoneFormType} from './types';
 
@@ -9,11 +9,16 @@ export const PhoneForm: FC<PropsWithChildren> = memo(({children}) => {
   const {
     control,
     handleSubmit,
+    watch,
     formState: {errors},
   } = usePhoneForm();
 
+  const {mutate: sendSms} = useSignPhone();
+
+  const isDisableBtn = !!errors.phone || watch('phone').length < 1;
+
   const submit: SubmitHandler<PhoneFormType> = async data => {
-    console.log('data,', data);
+    sendSms(data);
   };
 
   return (
@@ -37,6 +42,7 @@ export const PhoneForm: FC<PropsWithChildren> = memo(({children}) => {
                 value={value}
                 change={onChange}
                 isError={!!errors.phone}
+                isCheckCount={true}
               />
             )}
           />
@@ -50,7 +56,7 @@ export const PhoneForm: FC<PropsWithChildren> = memo(({children}) => {
       </View>
       {children}
       <View>
-        <NextButton isDisable={false} press={handleSubmit(submit)} />
+        <NextButton isDisable={isDisableBtn} press={handleSubmit(submit)} />
       </View>
     </View>
   );

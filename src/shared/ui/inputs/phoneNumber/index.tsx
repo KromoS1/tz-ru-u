@@ -6,17 +6,18 @@ import styles from './styles';
 type PropsType = {
   value: string;
   isError?: boolean;
+  isCheckCount?: boolean;
   change?: (text: string) => void;
 };
 
 export const PhoneNumber: FC<PropsWithChildren<PropsType>> = memo(
-  ({value, isError, change, children}) => {
+  ({value, isError, isCheckCount, change, children}) => {
     const {main} = globalStyle;
 
-    const borderColor = useMemo(
-      () => (!isError ? main.color : main.error),
-      [isError],
-    );
+    const borderColor = useMemo(() => {
+      const checkValue = !!isCheckCount ? value.length > 0 : false;
+      return checkValue ? main.success : !isError ? main.color : main.error;
+    }, [isError, value]);
 
     return (
       <View style={[styles.container, {borderColor}]}>

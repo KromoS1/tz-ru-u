@@ -2,6 +2,11 @@ import {useForm} from 'react-hook-form';
 import {PhoneFormType} from './types';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {PhoneSchema} from './scheme';
+import {useMutation} from 'react-query';
+import {KEY_REQUIRE, instance} from '@src/shared';
+import {AxiosResponse} from 'axios';
+import {useNavigation} from '@react-navigation/native';
+import {NAVIGATE} from '@src/entities';
 
 export const usePhoneForm = () => {
   return useForm<PhoneFormType>({
@@ -9,5 +14,21 @@ export const usePhoneForm = () => {
       phone: '',
     },
     resolver: yupResolver(PhoneSchema),
+  });
+};
+
+export const useSignPhone = () => {
+  const nav = useNavigation();
+
+  return useMutation({
+    mutationKey: KEY_REQUIRE.signPhone,
+    mutationFn: (data: PhoneFormType) => {
+      return instance
+        .post<AxiosResponse>(`/auth/send-sms?phone=${data.phone}`)
+        .then(res => res.data);
+    },
+    onSuccess: res => {
+      nav.navigate(NAVIGATE.AUTH.RECOVERY_CODE);
+    },
   });
 };

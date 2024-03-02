@@ -2,6 +2,7 @@ export const globalStyle = {
   main: {
     text: '#000',
     color: 'gray',
+    success: '#28a889',
     error: '#fc4c4e',
   },
   button: {

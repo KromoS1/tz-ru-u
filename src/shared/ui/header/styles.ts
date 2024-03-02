@@ -4,8 +4,19 @@ export default StyleSheet.create({
   container: {
     height: 80,
     backgroundColor: '#fff',
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
-  text: {fontSize: 34, color: '#000', letterSpacing: 4},
+  textBox: {
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: '90%',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 34,
+    color: '#000',
+    letterSpacing: 4,
+  },
 });
